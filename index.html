@@ -50,17 +50,55 @@ body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:1000;
 /* Painter's tape stripe — diagonal motif */
 .tape-stripe{position:relative;height:14px;background:repeating-linear-gradient(45deg,var(--accent) 0 8px,transparent 8px 18px);opacity:0.18;width:100%}
 
-/* Canvas drop-cloth weave — subtle background pattern (used in pullquote) */
-.canvas-bg{background-color:var(--surface);background-image:
-  linear-gradient(90deg,rgba(196,149,106,0.04) 1px,transparent 1px 3px),
-  linear-gradient(0deg,rgba(196,149,106,0.04) 1px,transparent 1px 3px),
-  url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.4' numOctaves='1'/%3E%3CfeColorMatrix values='0 0 0 0 0.65 0 0 0 0 0.49 0 0 0 0 0.32 0 0 0 0.18 0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:3px 3px,3px 3px,180px 180px}
+/* Canvas drop-cloth weave — REAL photographic canvas texture (Unsplash) overlaid on warm tone */
+.canvas-bg{
+  background-color:var(--surface);
+  background-image:
+    linear-gradient(rgba(247,243,237,0.78),rgba(243,239,233,0.85)),
+    url("https://images.unsplash.com/photo-1551193141-6dec33eba8db?auto=format&fit=crop&w=1600&q=70");
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+}
 
-/* Wood plank — used as section accent in About */
-.wood-bg{background:
-  linear-gradient(180deg,transparent 0,transparent 16%,rgba(122,73,40,0.08) 16%,rgba(122,73,40,0.08) 17%,transparent 17%,transparent 33%,rgba(122,73,40,0.06) 33%,rgba(122,73,40,0.06) 34%,transparent 34%,transparent 50%,rgba(122,73,40,0.10) 50%,rgba(122,73,40,0.10) 51%,transparent 51%,transparent 67%,rgba(122,73,40,0.05) 67%,rgba(122,73,40,0.05) 68%,transparent 68%,transparent 83%,rgba(122,73,40,0.07) 83%,rgba(122,73,40,0.07) 84%,transparent 84%),
-  linear-gradient(95deg,#f3efe9,#ede7dd 60%,#e8dcc7)}
+/* Wood plank — REAL wood-grain photograph (Unsplash) overlaid with cream wash */
+.wood-bg{
+  background-color:#ede7dd;
+  background-image:
+    linear-gradient(rgba(243,239,233,0.78),rgba(232,220,199,0.78)),
+    url("https://images.unsplash.com/photo-1564540586988-aa4e53c3d799?auto=format&fit=crop&w=1600&q=70");
+  background-size:cover;
+  background-position:center;
+}
+
+/* Drywall-mud / plaster — used as accent on reviews section background */
+.plaster-bg{
+  background-color:var(--surface);
+  background-image:
+    linear-gradient(rgba(255,255,255,0.82),rgba(247,243,237,0.92)),
+    url("https://images.unsplash.com/photo-1495546968767-f0573cca821e?auto=format&fit=crop&w=1600&q=70");
+  background-size:cover;
+  background-position:center;
+}
+
+/* Paint splatter overlay — REAL paint splash photo with transparency, brand-tinted */
+.paint-splash{position:absolute;pointer-events:none;z-index:0;width:340px;height:340px;background-size:contain;background-repeat:no-repeat;background-position:center;mix-blend-mode:multiply;opacity:0.45;filter:hue-rotate(-15deg) saturate(0.85)}
+.paint-splash.gold{background-image:url("https://images.unsplash.com/photo-1505740106531-4243f3831c78?auto=format&fit=crop&w=400&q=70");filter:sepia(0.6) saturate(2) hue-rotate(-20deg)}
+.paint-splash.sage{background-image:url("https://images.unsplash.com/photo-1505740106531-4243f3831c78?auto=format&fit=crop&w=400&q=70");filter:sepia(0.4) hue-rotate(40deg) saturate(0.7)}
+.paint-splash.tl{top:-60px;left:-80px;transform:rotate(-12deg)}
+.paint-splash.tr{top:-40px;right:-60px;transform:rotate(28deg)}
+.paint-splash.bl{bottom:-40px;left:-60px;transform:rotate(-160deg)}
+.paint-splash.br{bottom:-60px;right:-80px;transform:rotate(155deg)}
+
+/* Wildflower decoration — REAL flower close-up clipped to organic shape */
+.flower-photo{position:absolute;pointer-events:none;z-index:0;width:140px;height:140px;border-radius:50%;background-size:cover;background-position:center;opacity:0.78;mix-blend-mode:multiply;mask-image:radial-gradient(circle at 50% 50%,#000 50%,transparent 80%);-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 50%,transparent 80%)}
+.flower-photo.f1{background-image:url("https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=400&q=70")}
+.flower-photo.f2{background-image:url("https://images.unsplash.com/photo-1530092285049-1c42085fd395?auto=format&fit=crop&w=400&q=70")}
+.flower-photo.f3{background-image:url("https://images.unsplash.com/photo-1487070183336-b863922373d4?auto=format&fit=crop&w=400&q=70")}
+.flower-photo.tl{top:30px;left:30px}
+.flower-photo.tr{top:30px;right:30px}
+.flower-photo.bl{bottom:30px;left:30px}
+.flower-photo.br{bottom:30px;right:30px}
 
 /* Reveal — always visible (animation hook retained for future use) */
 .reveal{}
@@ -280,36 +318,7 @@ footer a{color:var(--accent-light)}
   </div>
 </div>
 </section>
-<div class="trim-line" aria-hidden="true"><span class="rule thin"></span><span class="bead"></span><span class="rule"></span><span class="bead-outer"></span><span class="rule"></span><span class="bead"></span><span class="rule thin"></span></div><section class="palette reveal" style="position:relative;overflow:hidden">
-<div class="splatter s3" aria-hidden="true"><svg viewBox="0 0 110 110" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet"><path d="M48 50 Q 32 30, 50 18 Q 70 8, 80 30 Q 92 50, 70 60 Q 58 68, 48 50 Z" fill="#a89bc2" opacity="0.65"/><circle cx="52" cy="25" r="4" fill="#a89bc2" opacity="0.60"/><circle cx="69" cy="63" r="8" fill="#a89bc2" opacity="0.54"/><circle cx="39" cy="49" r="7" fill="#a89bc2" opacity="0.45"/><circle cx="94" cy="73" r="4" fill="#a89bc2" opacity="0.48"/><circle cx="78" cy="68" r="4" fill="#a89bc2" opacity="0.58"/><circle cx="98" cy="60" r="1.17" fill="#a89bc2" opacity="0.37"/><circle cx="105" cy="9" r="1.54" fill="#a89bc2" opacity="0.55"/><circle cx="84" cy="32" r="2.15" fill="#a89bc2" opacity="0.46"/><circle cx="102" cy="52" r="2.15" fill="#a89bc2" opacity="0.43"/><circle cx="45" cy="78" r="0.74" fill="#a89bc2" opacity="0.49"/><circle cx="96" cy="66" r="1.54" fill="#a89bc2" opacity="0.48"/><circle cx="87" cy="25" r="0.89" fill="#a89bc2" opacity="0.40"/><circle cx="46" cy="91" r="1.91" fill="#a89bc2" opacity="0.41"/><circle cx="19" cy="15" r="0.76" fill="#a89bc2" opacity="0.36"/><circle cx="40" cy="78" r="1.05" fill="#a89bc2" opacity="0.53"/><circle cx="18" cy="52" r="2.04" fill="#a89bc2" opacity="0.51"/><circle cx="104" cy="63" r="1.48" fill="#a89bc2" opacity="0.43"/><circle cx="18" cy="84" r="1.85" fill="#a89bc2" opacity="0.56"/><circle cx="68" cy="35" r="1.13" fill="#a89bc2" opacity="0.39"/><path d="M63 58 q 2 8, 0 16 q -1 4, 1 6" stroke="#a89bc2" stroke-width="2" fill="none" opacity="0.55" stroke-linecap="round"/></svg></div>
-<div class="sprig br" aria-hidden="true"><svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
-<path d="M45 86 Q 42 60, 50 36 Q 56 18, 50 8" stroke="#7a8b7e" stroke-width="2.2" fill="none" stroke-linecap="round" opacity="0.85"/>
-<path d="M48 56 Q 30 52, 22 60 Q 34 64, 48 60 Z" fill="#7a8b7e" opacity="0.6"/>
-<path d="M52 70 Q 70 66, 76 74 Q 64 78, 52 74 Z" fill="#7a8b7e" opacity="0.55"/>
-<g transform="translate(50 14)">
-  <ellipse cx="0" cy="-7" rx="4.5" ry="7" fill="#f0cb8b" opacity="0.85" transform="rotate(0)"/>
-  <ellipse cx="0" cy="-7" rx="4.5" ry="7" fill="#f0cb8b" opacity="0.85" transform="rotate(72)"/>
-  <ellipse cx="0" cy="-7" rx="4.5" ry="7" fill="#f0cb8b" opacity="0.85" transform="rotate(144)"/>
-  <ellipse cx="0" cy="-7" rx="4.5" ry="7" fill="#f0cb8b" opacity="0.85" transform="rotate(216)"/>
-  <ellipse cx="0" cy="-7" rx="4.5" ry="7" fill="#f0cb8b" opacity="0.85" transform="rotate(288)"/>
-  <circle cx="0" cy="0" r="3" fill="#c4484a"/>
-</g>
-</svg></div>
-<div class="eyebrow">Recent palettes</div>
-<h3>Colours that have walked through her door</h3>
-<div class="sub">A small sampling of paints she's specified for clients across French River and West Nipissing.</div>
-<div class="swatches">
-  <div class="swatch"><div class="chip" style="background:#E5A6A4"></div><div class="name">Heartbeat</div><div class="meta">Pink</div></div>
-  <div class="swatch"><div class="chip" style="background:#A89BC2"></div><div class="name">Violet Ash</div><div class="meta">Lavender</div></div>
-  <div class="swatch"><div class="chip" style="background:#F0CB8B"></div><div class="name">Happy Thoughts</div><div class="meta">Warm</div></div>
-  <div class="swatch"><div class="chip" style="background:#3D5A6C"></div><div class="name">Naval</div><div class="meta">Deep Teal</div></div>
-  <div class="swatch"><div class="chip" style="background:#7A8B7E"></div><div class="name">Sage</div><div class="meta">Green</div></div>
-  <div class="swatch"><div class="chip" style="background:#C68B5C"></div><div class="name">Cinnamon</div><div class="meta">Earth</div></div>
-  <div class="swatch"><div class="chip" style="background:#E8DDC7"></div><div class="name">Linen</div><div class="meta">Neutral</div></div>
-  <div class="swatch"><div class="chip" style="background:#1F1B16"></div><div class="name">Iron</div><div class="meta">Charcoal</div></div>
-</div>
-</section>
-<div class="brush-divider" aria-hidden="true">
+<div class="trim-line" aria-hidden="true"><span class="rule thin"></span><span class="bead"></span><span class="rule"></span><span class="bead-outer"></span><span class="rule"></span><span class="bead"></span><span class="rule thin"></span></div><div class="brush-divider" aria-hidden="true">
 <svg viewBox="0 0 200 22" fill="none">
 <path d="M2 11 C 28 4, 64 18, 100 11 S 172 4, 198 11" stroke="#c4956a" stroke-width="2" stroke-linecap="round" opacity="0.85"/>
 <circle cx="2" cy="11" r="2" fill="#c4956a"/>
