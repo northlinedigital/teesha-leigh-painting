@@ -74,7 +74,7 @@ nav a.nav-link:hover{color:var(--text)}
 .gallery-header .eyebrow{font-size:0.7rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:10px}
 .gallery-header h2{font-size:clamp(1.8rem,3.5vw,2.4rem);color:var(--text)}
 .gallery-header .pill{font-size:0.78rem;color:var(--muted);background:var(--surface2);padding:6px 14px;border-radius:14px;border:1px solid var(--border);white-space:nowrap}
-.gallery-feature{position:relative;width:100%;height:28vh;min-height:185px;max-height:310px;overflow:hidden;margin-bottom:4px;background:var(--surface2)}
+.gallery-feature{position:relative;width:100%;aspect-ratio:24/9;max-height:48vh;overflow:hidden;margin-bottom:4px;background:var(--surface2)}
 .gallery-feature img{width:100%;height:100%;object-fit:cover}
 
 /* Horizontal photo reel — left-to-right stream */
@@ -95,12 +95,12 @@ nav a.nav-link:hover{color:var(--text)}
 .gallery-reel-wrap::after{right:0;background:linear-gradient(270deg,var(--bg) 0%,transparent 100%)}
 
 @media(max-width:900px){
-  .gallery-feature{height:21vh;min-height:135px}
+  .gallery-feature{aspect-ratio:21/9;max-height:38vh}
   .gallery-header{padding:0 24px}
   .gallery-reel .tile{height:36vh;min-height:240px}
 }
 @media(max-width:560px){
-  .gallery-feature{height:17vh;min-height:100px}
+  .gallery-feature{aspect-ratio:16/9;max-height:32vh}
   .gallery-reel .tile{height:33vh;min-height:210px}
   .gallery-reel-wrap::before,.gallery-reel-wrap::after{width:20px}
 }
