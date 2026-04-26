@@ -39,23 +39,32 @@ nav a.nav-link:hover{color:var(--text)}
 .nav-cta:hover{background:var(--accent);transform:translateY(-1px)}
 @media(max-width:640px){nav ul li.hide-mobile{display:none}nav ul{gap:0}.nav-cta{padding:9px 18px;font-size:0.76rem}}
 
-/* HERO */
-.hero{position:relative;width:100%;aspect-ratio:32/9;max-height:24rem;min-height:14rem;overflow:hidden;color:white}
-.hero-image{position:absolute;inset:0;background-size:cover;background-position:center;background-repeat:no-repeat}
-.hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,22,17,0.15) 0%,rgba(26,22,17,0.55) 50%,rgba(26,22,17,0.85) 100%)}
-.hero-content{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px}
-@media(max-width:640px){.hero-content{padding:0 24px 40px}}
-.hero-eyebrow{font-size:0.72rem;letter-spacing:4px;text-transform:uppercase;opacity:0.85;margin-bottom:24px}
-.hero h1{font-size:clamp(2.4rem,6vw,4.6rem);font-weight:500;max-width:900px;margin-bottom:24px}
-.hero h1 em{color:var(--accent-light);font-style:normal;font-weight:400}
-.hero p.hero-sub{font-size:1.05rem;max-width:580px;margin-bottom:36px;opacity:0.92;line-height:1.6}
-.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:15px 30px;border-radius:32px;font-weight:500;font-size:0.92rem;transition:all 0.25s;letter-spacing:0.2px;border:1px solid transparent;cursor:pointer;font-family:inherit}
+/* HERO — 2-column: copy left, wordmark right */
+.hero{position:relative;background:var(--bg);padding:48px 0 60px;border-bottom:1px solid var(--border)}
+.hero-inner{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center;width:100%;padding:0 60px}
+.hero-text{color:var(--text)}
+.hero-eyebrow{font-size:0.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:500;color:var(--ink);line-height:1.12;margin-bottom:20px;letter-spacing:-0.5px}
+.hero h1 em{color:var(--accent);font-style:normal;font-weight:400}
+.hero p.hero-sub{font-size:1.02rem;color:var(--muted);max-width:520px;margin-bottom:28px;line-height:1.65}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:32px;font-weight:500;font-size:0.9rem;transition:all 0.25s;letter-spacing:0.2px;border:1px solid transparent;cursor:pointer;font-family:inherit}
 .btn-primary{background:var(--accent);color:white}
-.btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 12px 32px rgba(196,149,106,0.35)}
-.btn-ghost{background:transparent;color:white;border-color:rgba(255,255,255,0.4)}
-.btn-ghost:hover{background:rgba(255,255,255,0.12);border-color:rgba(255,255,255,0.7)}
-@media(max-width:640px){.hero{aspect-ratio:auto;height:auto;min-height:18rem;max-height:none;padding:60px 0 40px}.hero-content{padding-bottom:0;padding-top:40px;justify-content:flex-end}}
+.btn-primary:hover{background:var(--accent-dark);transform:translateY(-2px);box-shadow:0 10px 28px rgba(196,149,106,0.32)}
+.btn-ghost{background:transparent;color:var(--muted);border-color:var(--border)}
+.btn-ghost:hover{background:var(--surface2);color:var(--text);border-color:var(--accent)}
+.hero-mark{display:flex;justify-content:center;align-items:center}
+.hero-mark img{max-width:100%;max-height:18rem;width:auto;height:auto;display:block}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:32px;padding:0 32px}
+  .hero-mark{order:-1}
+  .hero-mark img{max-height:14rem}
+}
+@media(max-width:560px){
+  .hero{padding:32px 0 40px}
+  .hero-inner{padding:0 20px;gap:24px}
+  .hero-mark img{max-height:11rem}
+}
 
 /* INTRO */
 .intro{padding:120px 0;text-align:center}
@@ -140,17 +149,21 @@ footer a{color:var(--accent-light)}
 </div>
 </nav>
 <section class="hero" id="top">
-<div class="hero-image" style="background-image:url('images/fbid_401929132612002.jpg')"></div>
-<div class="hero-content container">
-  <div class="hero-eyebrow">Servicing French River · West Nipissing · Northern Ontario</div>
-  <h1>Beautiful rooms<br>begin with <em>beautiful colour</em>.</h1>
-  <p class="hero-sub">Professional residential painting for the people who live in the rooms we finish. Honest pricing, careful work, and colour you'll love coming home to.</p>
-  <div class="hero-actions">
-    <a href="tel:+12262686177" class="btn btn-primary">
-      <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
-      (226) 268-6177
-    </a>
-    <a href="#living-rooms" class="btn btn-ghost">See the work →</a>
+<div class="hero-inner">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Servicing French River · West Nipissing · Northern Ontario</div>
+    <h1>Beautiful rooms<br>begin with <em>beautiful colour</em>.</h1>
+    <p class="hero-sub">Professional residential painting for the people who live in the rooms we finish. Honest pricing, careful work, and colour you'll love coming home to.</p>
+    <div class="hero-actions">
+      <a href="tel:+12262686177" class="btn btn-primary">
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        (226) 268-6177
+      </a>
+      <a href="#living-rooms" class="btn btn-ghost">See the work →</a>
+    </div>
+  </div>
+  <div class="hero-mark">
+    <img src="images/fbid_401929132612002.jpg" alt="Teesha Leigh Painting wordmark">
   </div>
 </div>
 </section>
