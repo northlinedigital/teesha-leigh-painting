@@ -66,6 +66,28 @@ nav a.nav-link:hover{color:var(--text)}
   .hero-mark img{max-height:11rem}
 }
 
+/* TESTIMONIALS — Google reviews social proof */
+.reviews{padding:64px 0 72px;background:var(--surface);border-bottom:1px solid var(--border)}
+.reviews-head{text-align:center;margin-bottom:40px}
+.reviews-head .eyebrow{font-size:0.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:14px}
+.reviews-head .rating{display:inline-flex;align-items:baseline;gap:14px;flex-wrap:wrap;justify-content:center}
+.reviews-head .rating .stars{font-size:1.6rem;color:var(--accent);letter-spacing:2px}
+.reviews-head .rating .score{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:600;color:var(--ink);line-height:1}
+.reviews-head .rating .label{font-size:0.92rem;color:var(--muted)}
+.reviews-head .rating .label strong{color:var(--text);font-weight:600}
+.reviews-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;padding:0 60px;max-width:1280px;margin:0 auto}
+.review-card{background:var(--bg);border:1px solid var(--border);border-radius:12px;padding:28px 26px;display:flex;flex-direction:column;gap:14px}
+.review-card .stars{color:var(--accent);font-size:0.95rem;letter-spacing:1.5px}
+.review-card .quote{font-family:'Playfair Display',serif;font-size:1.02rem;color:var(--text);line-height:1.55;font-weight:400;flex:1}
+.review-card .attr{display:flex;flex-direction:column;gap:2px;padding-top:14px;border-top:1px solid var(--border)}
+.review-card .attr .name{font-weight:600;font-size:0.92rem;color:var(--ink)}
+.review-card .attr .meta{font-size:0.78rem;color:var(--dim)}
+.reviews-foot{text-align:center;margin-top:34px}
+.reviews-foot a{font-size:0.85rem;color:var(--accent);font-weight:500;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color 0.2s}
+.reviews-foot a:hover{border-bottom-color:var(--accent)}
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr;padding:0 32px;max-width:560px}}
+@media(max-width:640px){.reviews{padding:48px 0 56px}.reviews-head .rating{gap:10px}.reviews-head .rating .score{font-size:1.8rem}}
+
 /* INTRO */
 .intro{padding:120px 0;text-align:center}
 .intro-eyebrow{font-size:0.72rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:18px}
@@ -165,6 +187,36 @@ footer a{color:var(--accent-light)}
   <div class="hero-mark">
     <img src="images/fbid_401929132612002.jpg" alt="Teesha Leigh Painting wordmark">
   </div>
+</div>
+</section>
+<section class="reviews" id="reviews">
+<div class="reviews-head">
+  <div class="eyebrow">What clients say</div>
+  <div class="rating">
+    <span class="stars">★★★★★</span>
+    <span class="score">4.8</span>
+    <span class="label">on <strong>Google</strong> · <strong>17 reviews</strong></span>
+  </div>
+</div>
+<div class="reviews-grid">
+  <article class="review-card">
+    <div class="stars">★★★★★</div>
+    <p class="quote">"Teesha is reliable, on time and does a great job. She is polite and keeps the room clean. I highly recommend her."</p>
+    <div class="attr"><span class="name">Krystyna</span><span class="meta">Local Guide · Google Review</span></div>
+  </article>
+  <article class="review-card">
+    <div class="stars">★★★★★</div>
+    <p class="quote">"Lines are crisp and clean and her colour suggestions were exactly what I didn't know I needed. Professional, quick and high attention to detail."</p>
+    <div class="attr"><span class="name">Hailey Christo</span><span class="meta">Local Guide · Google Review</span></div>
+  </article>
+  <article class="review-card">
+    <div class="stars">★★★★★</div>
+    <p class="quote">"Teesha was excellent! So glad we found her. She painted our entire cottage and was very professional and timely. If you need painting done, I highly recommend Teesha!"</p>
+    <div class="attr"><span class="name">Kelly Johnson</span><span class="meta">Google Review</span></div>
+  </article>
+</div>
+<div class="reviews-foot">
+  <a href="https://www.google.com/search?q=Teesha+Leigh+Painting+Noelville+Ontario#lrd=0x25f3076a2f9c107:0xeb0a238f0e95ed65,1" target="_blank" rel="noopener">Read all 17 reviews on Google →</a>
 </div>
 </section>
 <section class="intro" id="about">
